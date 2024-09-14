@@ -7,10 +7,10 @@
     <!--//! Main Container -->
     <div class="w-full h-max p-6 overflow-x-scroll">
         <!--//? Flex Container -->
-        <div class="flex w-max space-x-6 bg-green-600 h-[calc(theme('height.screen')-240px)]">
+        <div class="flex w-max space-x-6  h-[calc(theme('height.screen')-240px)]">
             @foreach ( range( 1, 10 ) as $column )
 				<!--//! Column -->
-				<div class="w-[260px] bg-blue-500">Column</div>
+				<livewire:column key="{{'column ' . $column}}" />
 				<!--// Column -->
 			@endforeach
         </div>
