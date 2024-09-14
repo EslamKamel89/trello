@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Livewire;
+
+use App\Models\Board;
+use Livewire\Component;
+
+class BoardShow extends Component {
+	public Board $board;
+	public function mount( Board $board ) {
+		$this->board = $board;
+	}
+	public function render() {
+		return view( 'livewire.board-show' );
+	}
+}
