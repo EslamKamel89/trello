@@ -9,10 +9,11 @@ Route::view( 'dashboard', 'dashboard' )
 	->middleware( [ 'auth', 'verified' ] )
 	->name( 'dashboard' );
 
-Route::view( 'profile', 'profile' )
-	->middleware( [ 'auth' ] )
-	->name( 'profile' );
 
-Route::get( '/board/{board}', BoardShow::class);
+Route::middleware( [ 'auth' ] )->group( function () {
+	Route::view( 'profile', 'profile' )
+		->name( 'profile' );
+	Route::get( '/board/{board}', BoardShow::class);
+} );
 
 require __DIR__ . '/auth.php';
