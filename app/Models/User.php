@@ -16,7 +16,7 @@ class User extends Authenticatable {
 	 *
 	 * @var array<int, string>
 	 */
-	protected $fillable = [ 
+	protected $fillable = [
 		'name',
 		'email',
 		'password',
@@ -27,7 +27,7 @@ class User extends Authenticatable {
 	 *
 	 * @var array<int, string>
 	 */
-	protected $hidden = [ 
+	protected $hidden = [
 		'password',
 		'remember_token',
 	];
@@ -38,12 +38,17 @@ class User extends Authenticatable {
 	 * @return array<string, string>
 	 */
 	protected function casts(): array {
-		return [ 
+		return [
 			'email_verified_at' => 'datetime',
 			'password' => 'hashed',
 		];
 	}
+
+	//! Relationships
 	public function boards(): HasMany {
 		return $this->hasMany( Board::class);
+	}
+	public function cards(): HasMany {
+		return $this->hasMany( Card::class);
 	}
 }

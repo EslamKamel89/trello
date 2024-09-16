@@ -5,7 +5,7 @@
         <div x-data="{ editing: false }" x-on:click.outside="editing = false"
             class="flex h-8 w-full min-w-0 items-center px-4 pr-0">
             <button class="w-full px-1.5 text-left font-medium" x-on:click="editing = true" x-show="!editing">
-                Column Title
+                {{ $column->title }}
             </button>
             <div x-show="editing">
                 <form action="">
@@ -27,8 +27,8 @@
     </div>
     <!--  Title Container -->
     <div class="space-y-1.5 overflow-y-scroll p-3 pt-0">
-        @foreach ( range( 1, rand( 1, 30 ) ) as $card )
-			<livewire:card key="{{ 'card ' . $card }}" />
+        @foreach ( $cards as $card )
+			<livewire:card wire:key="{{ 'card ' . $card->id }}" :card="$card" />
 		@endforeach
     </div>
     <div class="p-3">create card</div>

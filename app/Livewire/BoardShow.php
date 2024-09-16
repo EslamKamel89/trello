@@ -16,6 +16,6 @@ class BoardShow extends Component {
 	}
 	public function render() {
 
-		return view( 'livewire.board-show' );
+		return view( 'livewire.board-show', [ 'columns' => $this->board->columns ] );
 	}
 }

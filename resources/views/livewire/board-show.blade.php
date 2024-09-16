@@ -8,9 +8,10 @@
     <div class="w-full h-max p-6 overflow-x-scroll">
         <!--//? Flex Container -->
         <div class="flex w-max space-x-6  h-[calc(theme('height.screen')-240px)]">
-            @foreach ( range( 1, rand( 1, 10 ) ) as $column )
+            @foreach ( $columns as $column )
 				<!--//! Column -->
-				<livewire:column key="{{'column ' . $column}}" />
+
+				<livewire:column wire:key="{{'column ' . $column->id}}" :column="$column" />
 				<!--// Column -->
 			@endforeach
         </div>
