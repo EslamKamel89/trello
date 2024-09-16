@@ -1,15 +1,15 @@
-<div class="max-h-full w-[260px] shrink-0 self-start rounded-lg bg-white shadow-lg">
+<div class="flex max-h-full w-[260px] shrink-0 flex-col self-start rounded-lg bg-white shadow-lg">
     <!-- //! Title Container -->
     <div class="flex items-center justify-between">
         <!-- //? Form -->
         <div x-data="{ editing: false }" x-on:click.outside="editing = false"
             class="flex h-8 w-full min-w-0 items-center px-4 pr-0">
-            <button class="w-full text-left px-1.5" x-on:click="editing = true" x-show="!editing">
+            <button class="w-full px-1.5 text-left font-medium" x-on:click="editing = true" x-show="!editing">
                 Column Title
             </button>
             <div x-show="editing">
                 <form action="">
-                    <x-text-input value='Column Title' class="px-1.5 w-full h-8" />
+                    <x-text-input value="Column Title" class="h-8 w-full px-1.5" />
                 </form>
             </div>
         </div>
@@ -26,6 +26,10 @@
         <!-- Button -->
     </div>
     <!--  Title Container -->
-    <div>cards</div>
-    <div>create card</div>
+    <div class="space-y-1.5 overflow-y-scroll p-3 pt-0">
+        @foreach ( range( 1, rand( 1, 30 ) ) as $card )
+			<livewire:card key="{{ 'card ' . $card }}" />
+		@endforeach
+    </div>
+    <div class="p-3">create card</div>
 </div>
