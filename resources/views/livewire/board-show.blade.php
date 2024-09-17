@@ -7,7 +7,7 @@
     <!--//! Main Container -->
     <div class="w-full h-max p-6 overflow-x-scroll">
         <!--//? Flex Container -->
-        <div wire:sortable="sorted()" wire:sortable.options="{animation:100}"
+        <div wire:sortable="sorted" wire:sortable-group="moved" wire:sortable.options="{animation:100}"
             class="flex w-max space-x-6  h-[calc(theme('height.screen')-240px)]">
             @foreach ( $columns as $column )
 				<!--//! Column -->

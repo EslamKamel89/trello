@@ -26,9 +26,12 @@
         <!-- Button -->
     </div>
     <!--  Title Container -->
-    <div class="space-y-1.5 overflow-y-scroll p-3 pt-0">
+    <div wire:sortable-group.item-group="{{'columnGroupItem ' . $column->id}}"
+        class="space-y-1.5 overflow-y-scroll p-3 pt-0">
         @foreach ( $cards as $card )
-			<livewire:card wire:key="{{ 'card ' . $card->id }}" :card="$card" />
+			<div wire:key="{{'cardItme ' . $card->id}}" wire:sortable-group.item="{{'cardItemSortable ' . $column->id}}">
+				<livewire:card wire:key="{{ 'card ' . $card->id }}" :card="$card" />
+			</div>
 		@endforeach
     </div>
     <div class="p-3">create card</div>

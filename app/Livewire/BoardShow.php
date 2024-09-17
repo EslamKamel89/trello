@@ -39,4 +39,9 @@ class BoardShow extends Component {
 			return $query->where( 'user_id', auth()->id() );
 		} );
 	}
+
+	public function moved( array $items ) {
+		info( 'items', $items );
+	}
+
 }
